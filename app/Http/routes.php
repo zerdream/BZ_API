@@ -15,7 +15,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-
 $api = app('Dingo\Api\Routing\Router');
 //共有接口不需要登录
 $api->version('v1', function ($api) {
