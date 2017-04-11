@@ -10,27 +10,17 @@
 | and give it the controller to call when that URI is requested.
 |
 */
-
-Route::get('/', function () {
-    return view('welcome');
-});
-
-
+//获取api实例
 $api = app('Dingo\Api\Routing\Router');
+
+
 //共有接口不需要登录
 $api->version('v1', function ($api) {
-	// 用户登录验证并返回 Token
-    $api->post('/auth/login', 'App\Http\Controllers\Api\V1\AuthenticateController@smsLogin');
-    // 发送验证码
-	
+    //todo  添加共有接口
+    $api->post('v1/ben', 'App\Http\Controllers\Api\V1\AuthenticateController@ben');
 });
-
 
 //私有接口需要登录
 $api->version('v1', ['middleware' => 'jwt.auth'], function ($api) {
-	//返回用户信息
-    $api->post('/auth/me', 'App\Http\Controllers\Api\V1\AuthenticateController@myinfo');
-
-  
-
+    //todo  添加私有接口
 });
