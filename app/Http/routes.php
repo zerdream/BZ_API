@@ -13,7 +13,11 @@
 //获取api实例
 $api = app('Dingo\Api\Routing\Router');
 
+<<<<<<< HEAD
 
+=======
+$api = app('Dingo\Api\Routing\Router');
+>>>>>>> origin/master
 //共有接口不需要登录
 $api->version('v1', function ($api) {
     //todo  添加共有接口
